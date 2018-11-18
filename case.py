@@ -21,13 +21,7 @@ with open('input.txt') as f_in:
             Yds = int(text[text.find("<td>", rate+150)+4:text.find("</td>", rate+150)])
             Td = int(text[text.find("<td>", rate+250)+4:text.find("</td>", rate+250)])
             Int = int((text[text.find("<td>", rate+300)+4:text.find("</td>", rate+300)]))
-            Rating = ((Comp / Att - 0.3)*5 + (Yds/Att - 3) * 0.25 +(Td/Att)*20 + 2.375 - (Int/Att * 25))/6 * 100
+            Rating = ((Comp / Att - 0.3)*5 + (Yds / Att - 3) * 0.25 + (Td / Att)*20 + 2.375 - (Int / Att * 25))/6 * 100
 
-            print(Yds, file=f_out)
-            print(Att, file=f_out)
-            print(Comp, file=f_out)
-            print(Td, file=f_out)
-            print(Int, file=f_out)
-            print(Rating, file=f_out)
-
-            print(name, file=f_out)
+            print("{:^20}".format(name), "{:^7}".format(Comp), "{:^7}".format(Att), "{:^7}".format(Yds),
+                  "{:^7}".format(Td), "{:^7}".format(Int), "{:^7.2f}".format(Rating), file=f_out, end="\n")
